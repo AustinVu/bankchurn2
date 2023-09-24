@@ -20,7 +20,7 @@ def predict(data: ChurnInfo):
     # Predicting the class
     logger.info("Make predictions...")
     # Convert data to pandas DataFrame and make predictions
-    price = clf.predict(format_input_data(data))[0]
+    price = clf.predict_proba(format_input_data(data))[0][0]
 
     # Return the result
     return ChurnPrediction(Price=price)
